@@ -1,0 +1,14 @@
+
+@font-face {
+    font-family: 'MyFont';
+    src: url('./fontawesome-webfont.ttf'),
+         url('./fontawesome-webfont.woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+.hello{
+    color: red;
+    background: url('./img194.jpeg');
+    font-family: MyFont;
+}
