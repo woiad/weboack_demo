@@ -9,5 +9,7 @@ bundle 到页面中。可以使用 clean-webpack-plugin 插件，在每次打包
 
 webpack_demo_4 开发环境
   1.source-map 打包之后的 bound 里面含有多个js文件，一旦报错，堆栈无法找出错误的源头是哪个js文件，这时候就要用到 source-map 来映射错误的位置，用了source-map 就可以定位报错的位置。
-  2.webpack --watch webpack观察者模式，一旦运行该命令，命令不会退出。一旦，修改源文件的代码并保存，webpack 会自动构建。这样子，就不需要在每次修改之后，在手动运行 npm run build 构建。
+  2.webpack --watch webpack观察者模式，一旦运行该命令，命令不会退出。修改源文件的代码并保存，webpack 会自动构建。这样，就不需要在每次修改之后，再手动运行 npm run build 构建。
   3.webpack-dev-server 实时重载功能，运行这个命令之后，一旦修改源文件的代码并保存，页面会自动刷新，不需要手动刷新。
+  
+webpack_demo_5 热模块替换  HotModuleReplacementPlugin, 模块热替换插件， 开启热模块替换之后, 修该某个模块的代码，页面中与该模块相关的地方会自动更新，不需要刷新页面。js文件之外的其他文件的修改，例如，html, css等，也可以实现模块热替换的功能，实现该功能的关键是各个文件的 loader 实现的。loader 调用模块热替换的 module.hot.accept 接口实现热加载功能。
