@@ -27,3 +27,11 @@ page.json
  'sideEffects': ["./src/some-side-eccects.js","*.css"]
 }
 最后，还可以在 module.rules 中设置 "sideEffects"
+
+
+webpack_demo_7  生产环境。使用webpack，开发项目时，有两个环境，一个是开发环境，一个是生产环境，两个环境的配置各不相同，但，一些基础的配置是一样的，因此webpack的配置可以分为三个部分， webpack.common.js、webpack.prod.js、webpack.dev.js,达到逻辑分离的效果。最后，可以使用 webpack-merge 插件将 webpack.common.js 和 其他两个环境的配置合成一个完整的开发环境配置或生产环境配置。
+
+开发环境：注重于开发过程中的调试，bugger的查找，页面的实时重载或模块热替换。
+
+生产环境：项目的优化，例如，代码的压缩，资源优化等。
+
