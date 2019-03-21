@@ -1,4 +1,4 @@
-# weboack_demo
+# webpack_demo
 
  webpack_demo_1 学习webpack 起步
 
@@ -47,4 +47,5 @@ webpack_demo_8  代码分离
 SplitChunksPlugin 插件可以将公共的依赖模块提取到已有的 entry chunk 中，或者提取到一个新生成的 chunk 中。
 
 
+webpack_demo_9 懒加载或者按需加载
 
