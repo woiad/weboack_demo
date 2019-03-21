@@ -35,3 +35,16 @@ webpack_demo_7  生产环境。使用webpack，开发项目时，有两个环境
 
 生产环境：项目的优化，例如，代码的压缩，资源优化等。
 
+
+webpack_demo_8  代码分离  
+
+1、入口点分离：使用 entry 配置手动的分离代码
+
+2、防止重复：使用 SplitChunksPlugin 去重和分离 chunk, 去除重复引用的模块。
+
+3、动态引入：通过模块中的内联函数调用来分离代码。
+
+SplitChunksPlugin 插件可以将公共的依赖模块提取到已有的 entry chunk 中，或者提取到一个新生成的 chunk 中。
+
+
+
