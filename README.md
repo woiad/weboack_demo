@@ -68,3 +68,12 @@ manifest: 当 complier 开始执行、解析和映射应用程序时，它会保
 可以使用 webpack 提供的 SplitChunksPlugin 可以将模块分离到单独的 bundle 中。
 可以使用 webpack 的 optimization.runtimeChunk 将 runtime代码拆分为一个单独的 chunk 。将其设置为 single , 来为所有 chunk 创建一个 runtime bundle。
 optimization.splitChunks 添加 cacheGroups 参数进行相关设置，可以把第三方的 library 提取到单独的 venodr chunk 文件中。
+
+[contenthash]发生变化的情况：
+.main bundle 会随着自身的新增内容的修改，发生变化
+.vendor bundle 会随着自身的 module.id 的变化，而发生变化
+.manifest bundle 会因为引入一个新模块，而发生变化
+
+由于 vendor 是第三方
+.vendor bundle 会随着自身的 module.id 的变化，而发生变化的
+.vendor bundle 会随着自身的 module.id 的变化，而发生变化
