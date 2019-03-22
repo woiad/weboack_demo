@@ -49,3 +49,29 @@ SplitChunksPlugin 插件可以将公共的依赖模块提取到已有的 entry c
 
 webpack_demo_9 懒加载或者按需加载
 
+
+webpack_demo_10 缓存
+
+当项目在本地使用 webpack 构建完毕时，可以直接将 /dist 目录下的文件部署到服务器上，部署完毕，就能在线访问你的网站。想要提高网页的打开速度，可以使用缓存技术，使用缓存，会将文件直接存储在本地，下一次，再访问网站时，会检查本地存储的文件名跟服务器的文件名是否一致，如果一致，直接使用本地缓存好的文件，就不再下载服务器中的文件。如果源文件的名字不发生改变，客户端会一直使用缓存文件，导致两处的文件不能同步，网站就会出问题。
+
+在 webopack 中可以通过替换 output.filename 中的 substitutions[可替换模板字符串] 设置，来定义输出文件的名字。其中 [contenthash] substitutions 将根据资源的内容创建出唯一的 hash ，资源的内容发生变化， [contenthash] 也会发生变化
+
+runtime: 在浏览器运行过程中，webpack 用来连接模块化应用程序所需的所有代码。它包含：在模块交互时，连接模块所需的加载和解析的逻辑。包括：已经加载到浏览器中的连接模块逻辑，以及尚未加载模块的延迟加载逻辑
+
+manifest: 当 complier 开始执行、解析和映射应用程序时，它会保留模块的详细要点。这个数据集就是manifest。相当于一份清单，里面记载着所有的 chunk ，与 chunkName 的映射。当 runtime 处理模块时，可以根据 chunkName，在 manifest 中映射 chunk 。
+
+使用 webpack 构建应用时，有三种代码类型：
+1、个人或团队编写的源码
+2、你的源码依赖的第三方的 ‘library’（库） 或 ‘vendor'
+3、webpack 的 runtime 和 manifest 管理所有的模块交互
+
+可以使用 webpack 提供的 SplitChunksPlugin 可以将模块分离到单独的 bundle 中。
+可以使用 webpack 的 optimization.runtimeChunk 将 runtime代码拆分为一个单独的 chunk 。将其设置为 single , 来为所有 chunk 创建一个 runtime bundle。
+optimization.splitChunks 添加 cacheGroups 参数进行相关设置，可以把第三方的 library 提取到单独的 venodr chunk 文件中。
+
+[contenthash]发生变化的情况：
+.main bundle 会随着自身的新增内容的修改，发生变化
+.vendor bundle 会随着自身的 module.id 的变化，而发生变化
+.manifest bundle 会因为引入一个新模块，而发生变化
+
+由于 vendor 是第三方的库(library)，所以它稳定的，不会发生变化，我们希望它的 [contenthash] 不变，可以使用两个插件来解决这个问题，第一个是，NameModulesPlugin, 将使用模块的路径，而不是一个数字indetifier。次插件有助于开发环境下产生更可读的输出结果，然而，执行时间会稍长。第二个插件是 HasModulesIdsPlugin , 推荐用于生产环境构建。
