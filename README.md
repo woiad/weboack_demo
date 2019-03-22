@@ -88,5 +88,6 @@ shim 细粒度：一些遗留的 package 的 this 指向 window 对象，当模�
 shim 是一个库(library),它将一个新的 API 引入到一个旧的环境中，而且仅仅依靠旧的环境已有的手段实现
 polyfill: 就是一个用在浏览器 API 上的 shim，通常的做法就是先检查当前浏览器对某个 API 是否支持，如果不支持，就按需加载对应的 polyfill。然后，新旧浏览器就都可以使用这个 API。
 
-
+webpack 公共路径(publicPath)
+通过它来指定应用程序中所有资源的基础路径
 
