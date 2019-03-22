@@ -1,0 +1,21 @@
+{
+  "name": "webpack_demo_3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "lodash": "^4.17.11",
+    "webpack": "^4.29.6"
+  },
+  "devDependencies": {
+    "exports-loader": "^0.7.0",
+    "imports-loader": "^0.8.0"
+  }
+}
