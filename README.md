@@ -79,4 +79,14 @@ optimization.splitChunks 添加 cacheGroups 参数进行相关设置，可以把
 
 webpack_demo_11 shim 预置依赖
 
-shim 
+shim 预置全局变量：使用  ProvidePlugin 插件后,能够在 webpack 编译的每个模块中，通过访问一个变量获取一个 package 。如果 webpack 在模块中看到这个变量，它将在最终的 bundle 中引入给定的 package 并将它提供给要用到它的模块。
+
+shim 细粒度：一些遗留的 package 的 this 指向 window 对象，当模块运行在 CommonJS 上下文中，this 指向 module.export ,这样就会出现问题，解决这个问题的方法就是使用 imports-loader 覆盖 this 指向
+
+全局 export : exports-loader 将全局变量作为一个普通模块导出。webpack_demo_11 中的示例代码：将 globals.js 中的 file 导出为 file ，以及将 helpers.parse 导出为 parse。
+
+shim 是一个库(library),它将一个新的 API 引入到一个旧的环境中，而且仅仅依靠旧的环境已有的手段实现
+polyfill: 就是一个用在浏览器 API 上的 shim，通常的做法就是先检查当前浏览器对某个 API 是否支持，如果不支持，就按需加载对应的 polyfill。然后，新旧浏览器就都可以使用这个 API。
+
+
+
