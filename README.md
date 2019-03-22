@@ -75,3 +75,8 @@ optimization.splitChunks 添加 cacheGroups 参数进行相关设置，可以把
 .manifest bundle 会因为引入一个新模块，而发生变化
 
 由于 vendor 是第三方的库(library)，所以它稳定的，不会发生变化，我们希望它的 [contenthash] 不变，可以使用两个插件来解决这个问题，第一个是，NameModulesPlugin, 将使用模块的路径，而不是一个数字indetifier。次插件有助于开发环境下产生更可读的输出结果，然而，执行时间会稍长。第二个插件是 HasModulesIdsPlugin , 推荐用于生产环境构建。
+
+
+webpack_demo_11 shim 预置依赖
+
+shim 
